@@ -1,9 +1,10 @@
-import logo from './logo.svg';
+import React from 'react';
+import Employee from './components/Employee.js';
 
 function App() {
   return (
     <div>
-      HelloS
+      <Employee/>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Table from "./Table";
-import search from "../components/utils/API";
+import search from "./utils/api.js";
 import Navbar from "./Navbar";
 
 //Employee class

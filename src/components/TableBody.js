@@ -2,11 +2,11 @@ import React from 'react';
 import Info from './Info';
 
 function TableBody(props){
-    const tableData = props.results.map((employee) => {
+    const tableData = props.results.map((employee) => 
         <tr key={employee.email}>
         <th scope="row">
-            {<InfoModal 
-            params={employee}
+            {<Info
+                params={employee}
             />}
         </th>
         <td><img className="img-fluid img-thumbnail" src={employee.picture.medium} alt={employee.name.first} /></td>
@@ -14,7 +14,6 @@ function TableBody(props){
         <td>{employee.phone}</td>
         <td>{employee.location.city}, {employee.location.state}, {employee.location.country}</td>
         </tr>
-    }
     )
     return (
         <tbody>

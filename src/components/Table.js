@@ -1,5 +1,5 @@
 import React from "react";
-import Tbody from "./Tbody";
+import TableBody from "./TableBody";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSort } from '@fortawesome/free-solid-svg-icons';
 
@@ -26,9 +26,26 @@ function Table(props){
         });
     };
 
+    const sortFalse = function (propertyRetriever, arr) {
+        arr.sort(function (a, b) {
+            const valueA = propertyRetriever(a);
+            const valueB = propertyRetriever(b);
+            if (valueB < valueA) {
+                return -1;
+            } else if (valueB > valueA) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+    };
+
     if(props.sort === true){
         sortTrue(simplePropertyRetriever, sortedResults);
     } 
+    else {
+        sortFalse(simplePropertyRetriever, sortedResults);
+    }
     //return a table
     return (
         <table className="table">
@@ -41,9 +58,11 @@ function Table(props){
             <th scope="col">Location</th>
             </tr>
         </thead>
-        <Tbody 
+        <TableBody 
         results={sortedResults} key={sortedResults.email}
         />
         </table>
     );
 }
+
+export default Table;
